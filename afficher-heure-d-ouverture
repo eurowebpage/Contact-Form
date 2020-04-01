@@ -1,0 +1,62 @@
+######################################
+#              Exemple 1             #
+######################################
+
+<?php
+ setlocale(LC_ALL, 'fr_BE').': ';
+ // echo iconv('ISO-8859-1', 'UTF-8', strftime('%A %d de %B de %Y', time()));
+
+setlocale(LC_TIME, 'fr_FR.utf8','fra'); // I'm french !
+date_default_timezone_set("Europe/Brussels");
+
+$time = time();
+$localtime = strftime("%A %d-%b-%Y %T %Z", $time);
+//setlocale(LC_TIME, "fr_FR");
+
+$hour = strftime("%H", $time);
+ 
+echo "<p>It's $localtime in my country (Frensh, Belgium,...). ";
+ 
+if (10 <= $hour && $hour < 19)
+ echo "I'm in the office. How can I help you?";
+else
+ echo "Office closed, sorry! I'm available 17:00-19:00 (5-7 PM) Mon-Fri.";
+ 
+echo "</p>";
+?>
+
+######################################
+#              Exemple 2             #
+######################################
+
+<?php
+if ($_SERVER['SERVER_NAME'] == "eurowebpage.com") // On line
+{
+   $number_of_the_day= "%e"; // Number of the day without "0"
+}
+else
+{
+   $number_of_the_day = "%#d";  // The same on Windows/Wampserver
+}
+
+setlocale(LC_TIME, 'fr_FR.utf8','fra'); // I'm french !
+date_default_timezone_set("Europe/Brussels");
+
+$time = time();
+$localtime = strftime("%A %d-%b-%Y %T %Z", $time);
+//setlocale(LC_TIME, "fr_FR");
+
+$hour = strftime("%H", $time);
+ 
+echo "<p>It's $localtime in my country (Frensh, Belgium,...). ";
+ 
+if (10 <= $hour && $hour < 19)
+ echo "I'm in the office. How can I help you?";
+else
+ echo "Office closed, sorry! I'm available 17:00-19:00 (5-7 PM) Mon-Fri.";
+ 
+echo "</p>";
+?>
+
+
+
